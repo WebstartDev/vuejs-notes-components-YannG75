@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Note</title>
+</head>
+<body>
+<div id="app">
+
+    <div class="container">
+        <h1 class="text-center p-2">Notes</h1>
+        <div class="d-flex position-relative">
+            <textarea class="form-control " placeholder="Ecrivez votre note ici" v-model="text" @keydown="wordCompter('')">
+
+            </textarea>
+            <div class="position-absolute " style="top: 15px; right: 80px">{{ words }} words</div>
+            <button class="btn btn-primary" type="button" @click="onSubmit">submit</button>
+        </div>
+
+
+
+        <shownote :notes="notes" v-on:count-words="wordCompter($event)" ></shownote>
+
+    </div>
+
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="script.js"></script>
+
+</html>
